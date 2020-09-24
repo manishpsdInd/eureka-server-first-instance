@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: eureka-server-first-instance
+
+server:
+  port: 9090
+
+eureka:
+  server:
+    enableSelfPreservation: false
+    allowed:
+      admin:
+        name: admin
+        password: admin 
+      user:
+        name: user
+        password: user
+    
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://localhost:${server.port}/eureka
+
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
